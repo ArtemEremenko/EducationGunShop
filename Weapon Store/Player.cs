@@ -8,12 +8,6 @@ namespace Weapon_Store
 {
     internal class Player
     {
-        /*public int health = 100;
-        public int Hit(int damage)
-        {
-            health -= damage;
-            return health;
-        }*/
         public List<Product> productsInMyInventory = new List<Product>();
         public void AddProduct(Product product)
         {

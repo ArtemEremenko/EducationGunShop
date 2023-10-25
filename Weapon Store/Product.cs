@@ -9,13 +9,11 @@ namespace Weapon_Store
     public class Product
     {
         public string Name { get; set; }
-        //public int Count { get; set; }
         public float Caliber { get; set; }
 
         public Product (string name, float caliber)
         {
             Name = name;
-            //Count = count;
             Caliber = caliber;
         }
         public Product Clone()

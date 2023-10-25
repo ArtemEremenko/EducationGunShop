@@ -8,57 +8,40 @@ namespace Weapon_Store
 {
     internal class Seller
     {
-        private List<Product> productsInSellerInventory = new List<Product>();
-        public void SellerSayHi()
-        {
-            Console.WriteLine("Look what I got for You ... ");
-        }
-        public void GetNewSupply()
-        {
+        private List<Product> inventory = new List<Product>();
+        public int InventorySize => inventory.Count;
+       /*public int InventorySizeAlternative 
+        { 
+            get 
+            { 
+                return inventory.Count;
+            }
+        }*/ 
 
-        }
         public void AddProduct(Product product)
         {
             if (product != null)
             {
-                productsInSellerInventory.Add(product);
+                inventory.Add(product);
             }
         }
-        public bool RemoveProduct(Product product)
+        public Product RemoveProductAt(int index)
         {
-            if (productsInSellerInventory.Remove(product))
-            {
-                return true;
-            }
-            return false;
+            Product product = inventory[index];
+            inventory.RemoveAt(index);
+            return product;
         }
-        public void ShowInventory(string y)
+        public void ShowInventory()
         {
-            if (y != "Y" && y != "y")
-            {
-                Console.WriteLine("okay then, get lost...");
-                //return false;
-            }
-            else
-            {
-                foreach (Product prod in productsInSellerInventory)
-                {
-                    Console.WriteLine($"{prod.Name}, calibeer {prod.Caliber}, in Seller Inventory");
-                }
-                //return true;
-            }
-            if (productsInSellerInventory.Count == 0)
+            if (inventory.Count == 0)
             {
                 Console.WriteLine("Seller inventory is empty");
+                return;
+            }
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                Console.WriteLine($"[{i + 1}] - {inventory[i].Name}, calibeer {inventory[i].Caliber}, in Seller Inventory");
             }
         }
-        /*public bool OutOfStock()
-        {
-            if (0 == 0)
-            {
-                return true;
-            }
-            return false;
-        }*/
     }
 }
