@@ -17,7 +17,6 @@ namespace Weapon_Store
                 return inventory.Count;
             }
         }*/ 
-
         public void AddProduct(Product product)
         {
             if (product != null)
@@ -25,12 +24,14 @@ namespace Weapon_Store
                 inventory.Add(product);
             }
         }
+
         public Product RemoveProductAt(int index)
         {
             Product product = inventory[index];
             inventory.RemoveAt(index);
             return product;
         }
+
         public void ShowInventory()
         {
             if (inventory.Count == 0)

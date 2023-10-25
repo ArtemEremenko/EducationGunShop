@@ -9,6 +9,7 @@ namespace Weapon_Store
     internal class Player
     {
         public List<Product> productsInMyInventory = new List<Product>();
+
         public void AddProduct(Product product)
         {
             if (product != null)
@@ -16,6 +17,7 @@ namespace Weapon_Store
                 productsInMyInventory.Add(product);
             }
         }
+
         public void ShowInventory()
         {
             if (productsInMyInventory.Count != 0)

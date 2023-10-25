@@ -8,12 +8,11 @@ internal class Program
 {
     private static Seller seller = new Seller(); 
     private static Player player = new Player();
+
     private static void Main(string[] args)
     {
         Product gun1 = new Product("AK 74 M", 5.45f);
-      
         Product gun2 = new Product("AR 15", 5.56f);
-      
 
         Console.WriteLine("Here You can get a gun");
         Console.WriteLine("----------------------");
@@ -36,11 +35,9 @@ internal class Program
             switch (inputXSI.ToLower())
             {
                 case "s":
-                    Console.WriteLine("Case S is working.");
                     InteractWithSeller();
                     break;
                 case "i":
-                    Console.WriteLine("Case I is working.");
                     player.ShowInventory();
                     break;
                 default:
@@ -57,6 +54,7 @@ internal class Program
     {
         return userInput.ToLower() == "x";
     }
+
     private static int GetNumberInput()
     {
         int num;
@@ -66,6 +64,7 @@ internal class Program
         }
         return num;
     }
+
     private static void InteractWithSeller()
     {
         seller.ShowInventory();
@@ -73,7 +72,7 @@ internal class Program
         {
             return;
         }
-        Console.WriteLine("new text 1-20 ");
+        Console.WriteLine("Enter number of the product that You want to get.");
 
         int userInputNum = GetNumberInput();
         if (userInputNum > 0 && userInputNum <= seller.InventorySize)
@@ -81,36 +80,5 @@ internal class Program
             var product = seller.RemoveProductAt(userInputNum - 1);
             player.AddProduct(product);
         }
-        
-
-
-        /*
-        if (userInputNum == 1) // по індексу наприклад з 0-20 1
-        {
-            if (seller.RemoveProduct(gun1))
-            {
-                player.AddProduct(gun1);
-            }
-            else
-            {
-                Console.WriteLine("position 1 out of stock");
-            }
-        }
-        else if (usrInputNum == "2")
-        {
-            if (seller.RemoveProduct(gun2))
-            {
-                player.AddProduct(gun2);
-            }
-            else
-            {
-                Console.WriteLine("position 2 out of stock");
-            }
-        }
-        else
-        {
-            Console.WriteLine("incorrect input, enter a number '1' or '2'");
-        }*/
     }
-    
 }
